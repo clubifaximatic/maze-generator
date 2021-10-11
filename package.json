@@ -1,0 +1,26 @@
+{
+  "name": "maze-generator",
+  "version": "0.0.1",
+  "description": "maze generator",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clubifaximatic/maze-generator"
+  },
+  "keywords": [
+    "mazes",
+    "node"
+  ],
+  "license": "MIT"
+}
