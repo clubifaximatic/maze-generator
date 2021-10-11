@@ -4,6 +4,7 @@ const Grid = require("../mazes/model/grid")
 const BinaryTree = require("../mazes/binary-tree")
 const Sidewinder = require("../mazes/sidewinder");
 const AldousBroder = require("../mazes/aldous-broder");
+const Wilsons = require("../mazes/wilsons");
 
 function code400(res, message) {
     res.status(400)
@@ -15,6 +16,7 @@ function chooseAlgorithm(method) {
         case "binary-tree": return new BinaryTree()
         case "sidewinder": return new Sidewinder()
         case "aldous-broder": return new AldousBroder()
+        case "wilsons": return new Wilsons()
         
         default: return new BinaryTree()
     }

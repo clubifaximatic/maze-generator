@@ -69,5 +69,22 @@ The application is deployed in heroku:
 +---+---+---+---+---+
 ```
 
+### wilsons
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons)
+
+```
++---+---+---+---+---+
+|       |       |   |
++---+   +---+   +   +
+|           |   |   |
++---+   +---+   +   +
+|                   |
++   +---+---+---+---+
+|               |   |
++   +---+   +   +   +
+|   |       |       |
++---+---+---+---+---+
+```
+
 ### TODO
 * implement more algorithms
