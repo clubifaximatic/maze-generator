@@ -12,6 +12,7 @@ The application is deployed in heroku:
 ### Parameters
 * *columns*: number of colums in the maze
 * *rows*: number of rows in the maze
+* *seed*: optional. Seed for random method. Same seed number generates the same maze
 
 ## Implementations
 
@@ -34,4 +35,4 @@ The application is deployed in heroku:
 ```
 
 ### TODO
-* setup a server with express to run them.ie `maze/generate?columns=20&rows=20&algorithm=binary-tree
+* implement more algorithms

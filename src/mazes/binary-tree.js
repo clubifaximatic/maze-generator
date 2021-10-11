@@ -1,11 +1,13 @@
 'use strict';
 
-const { randomInt } = require("crypto")
-const Grid = require("./model/grid")
+// const Grid = require("./model/grid")
+const Random = require("java-random");
 
 class BinaryTree {
 
-    on(grid) {
+    on(grid, seed = 0) {
+        let rnd = Number(seed) ? new Random(Number(seed)) : new Random()
+
         for (let cell of grid.cells()) {
             let neighbours = []
             if (cell.north != null) {
@@ -19,7 +21,7 @@ class BinaryTree {
                 continue
             }
 
-            let linkedNeighbour = neighbours[randomInt(neighbours.length)]
+            let linkedNeighbour = neighbours[rnd.nextInt(neighbours.length)]
             cell.link(linkedNeighbour)
         }
     }

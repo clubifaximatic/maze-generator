@@ -9,6 +9,7 @@ showIndex = () => {
 
 generateMaze = (req, res) => {
     console.log(req.query)
+
     let columns = req.query.columns
     let rows = req.query.rows
     if (columns === undefined) {
@@ -16,13 +17,16 @@ generateMaze = (req, res) => {
     } else if (rows === undefined) {
         return res.send("parameter `rows` is missing")
     }
+    
+    let seed = req.query.seed || 0
 
     let grid = new Grid(columns, rows)
 
     let binaryTree = new BinaryTree()
-    binaryTree.on(grid)
+    binaryTree.on(grid, seed)
     
     res.setHeader('Content-Type', 'text/plain')
+    res.
     res.send(grid.toAscii())
 }
 
@@ -30,5 +34,3 @@ express()
     .get('/', (req, res) => res.send(showIndex()))
     .get('/maze', (req, res) => generateMaze(req, res))
     .listen(PORT, () => console.log(`Listening on ${ PORT }`))
-
-
