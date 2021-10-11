@@ -10,15 +10,16 @@ The application is deployed in heroku:
 [https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5](https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5)
 
 ### Parameters
-* *columns*: number of colums in the maze
-* *rows*: number of rows in the maze
-* *seed*: optional. Seed for random method. Same seed number generates the same maze
+* **columns**: number of colums in the maze
+* **rows**: number of rows in the maze
+* **method**: the algorithm to be used (binary-tree, sidewinder, etc.)
+* **seed**: optional. Seed for random method. Same seed number generates the same maze
 
-## Implementations
+## Implementations (method)
 
 ### binary-tree
 
-[https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5](https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5)
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree)
 
 ```
 +---+---+---+---+---+
@@ -31,6 +32,23 @@ The application is deployed in heroku:
 |       |           |
 +   +   +   +   +   +
 |   |   |   |   |   |
++---+---+---+---+---+
+```
+
+### sidewinder
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder)
+
+```
++---+---+---+---+---+
+|                   |
++   +---+---+   +   +
+|           |   |   |
++---+   +   +---+   +
+|       |   |       |
++   +---+   +---+---+
+|       |           |
++   +   +---+---+   +
+|   |       |       |
 +---+---+---+---+---+
 ```
 

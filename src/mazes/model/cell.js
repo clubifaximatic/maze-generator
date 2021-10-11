@@ -12,6 +12,10 @@ class Cell {
     }
 
     link(cell) {
+        if (!cell) {
+            return
+        }
+
         this._links.set(cell, true)
         cell._links.set(this, true)
     }
