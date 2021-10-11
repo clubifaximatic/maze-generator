@@ -30,7 +30,7 @@ class Grid {
             cell.north = this.cell(x, y - 1)
             cell.east = this.cell(x + 1, y)
             cell.south = this.cell(x, y + 1)
-            cell.weast = this.cell(x - 1, y)
+            cell.west = this.cell(x - 1, y)
         }
     }
 

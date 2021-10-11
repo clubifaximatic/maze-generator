@@ -52,5 +52,22 @@ The application is deployed in heroku:
 +---+---+---+---+---+
 ```
 
+### aldous-broder
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder)
+
+```
++---+---+---+---+---+
+|   |   |       |   |
++   +   +---+   +   +
+|                   |
++   +---+   +---+---+
+|       |   |       |
++   +---+---+   +   +
+|               |   |
++---+   +---+   +---+
+|       |           |
++---+---+---+---+---+
+```
+
 ### TODO
 * implement more algorithms

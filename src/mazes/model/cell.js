@@ -11,6 +11,11 @@ class Cell {
         this._links = new Map()
     }
 
+    neighbours() {
+        return Array.of(this.north, this.east, this.south, this.west)
+            .filter(x => x)
+    }
+
     link(cell) {
         if (!cell) {
             return
@@ -26,7 +31,7 @@ class Cell {
     }
 
     links() {
-        return this._links.keys()
+        return Array.from(this._links.keys())
     }
 
     isLinked(cell) {
