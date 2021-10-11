@@ -17,7 +17,7 @@ generateMaze = (req, res) => {
     } else if (rows === undefined) {
         return res.send("parameter `rows` is missing")
     }
-    
+
     let seed = req.query.seed || 0
 
     let grid = new Grid(columns, rows)
@@ -26,7 +26,6 @@ generateMaze = (req, res) => {
     binaryTree.on(grid, seed)
     
     res.setHeader('Content-Type', 'text/plain')
-    res.
     res.send(grid.toAscii())
 }
 
