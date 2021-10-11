@@ -1,7 +1,7 @@
 'use strict';
 
 const { randomInt } = require("crypto")
-var Grid = require("./model/grid")
+const Grid = require("./model/grid")
 
 class BinaryTree {
 

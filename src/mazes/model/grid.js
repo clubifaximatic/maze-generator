@@ -1,6 +1,6 @@
 'use strict';
 
-var Cell = require("./cell")
+const Cell = require("./cell")
 
 class Grid {
 

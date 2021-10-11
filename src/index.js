@@ -1,7 +1,7 @@
 const express = require('express')
-
-var Grid = require("./mazes/model/grid")
-var BinaryTree = require("./mazes/binary-tree")
+const Grid = require("./mazes/model/grid")
+const BinaryTree = require("./mazes/binary-tree")
+const PORT = process.env.PORT || 5000
 
 showIndex = () => {
     return "use /maze?columns=10&rows=10"
