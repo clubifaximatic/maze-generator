@@ -17,7 +17,7 @@ class Grid {
         // Create grid using [row][column] to provide rows easier
         for (let y = 0; y < this.rows; y++) {
             this.grid[y] = []
-            for (let x = 0; x < this.rows; x++) {
+            for (let x = 0; x < this.columns; x++) {
                 this.grid[y][x] = new Cell(x, y)
             }
         }
