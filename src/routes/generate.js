@@ -5,6 +5,7 @@ const BinaryTree = require("../mazes/binary-tree")
 const Sidewinder = require("../mazes/sidewinder");
 const AldousBroder = require("../mazes/aldous-broder");
 const Wilsons = require("../mazes/wilsons");
+const HuntAndKill = require("./mazes/hunt-and-kill")
 
 function code400(res, message) {
     res.status(400)
@@ -17,6 +18,7 @@ function chooseAlgorithm(method) {
         case "sidewinder": return new Sidewinder()
         case "aldous-broder": return new AldousBroder()
         case "wilsons": return new Wilsons()
+        case "hunt-and-kill": return new HuntAndKill()
         
         default: return new BinaryTree()
     }

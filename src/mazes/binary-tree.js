@@ -1,6 +1,5 @@
 'use strict';
 
-// const Grid = require("./model/grid")
 const Random = require("java-random");
 
 class BinaryTree {

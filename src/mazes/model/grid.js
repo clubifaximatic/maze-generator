@@ -67,7 +67,6 @@ class Grid {
     }
 
     toAscii() {
-
         let maze = "+"
         for (let i = 0; i < this.columns; i++) {
             maze += "---+"
@@ -84,8 +83,10 @@ class Grid {
                 let body = "   "
                 let eastDraw = cell.isLinked(cell.east) ? " " : "|"
                 let southDraw = cell.isLinked(cell.south) ? "   " : "---"
+
+                let tile = cell.links().length > 0 ? body : " . "
                 
-                top = top + body + eastDraw
+                top = top + tile + eastDraw
                 bottom = bottom + southDraw + "+"
             }
 

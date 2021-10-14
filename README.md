@@ -86,5 +86,21 @@ The application is deployed in heroku:
 +---+---+---+---+---+
 ```
 
+### hunt -and-kill
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill)
+```
++---+---+---+---+---+
+|       |           |
++   +   +---+---+   +
+|   |               |
++   +---+---+---+---+
+|   |               |
++   +   +---+---+   +
+|   |           |   |
++   +---+---+   +   +
+|               |   |
++---+---+---+---+---+
+```
+
 ### TODO
 * implement more algorithms
