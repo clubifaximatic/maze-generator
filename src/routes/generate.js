@@ -5,7 +5,7 @@ const BinaryTree = require("../mazes/binary-tree")
 const Sidewinder = require("../mazes/sidewinder");
 const AldousBroder = require("../mazes/aldous-broder");
 const Wilsons = require("../mazes/wilsons");
-const HuntAndKill = require("./mazes/hunt-and-kill")
+const HuntAndKill = require("../mazes/hunt-and-kill")
 
 function code400(res, message) {
     res.status(400)
