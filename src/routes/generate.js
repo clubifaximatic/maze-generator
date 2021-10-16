@@ -6,6 +6,7 @@ const Sidewinder = require("../mazes/sidewinder");
 const AldousBroder = require("../mazes/aldous-broder");
 const Wilsons = require("../mazes/wilsons");
 const HuntAndKill = require("../mazes/hunt-and-kill")
+const Backtracking = require("../mazes/backtracking")
 
 function code400(res, message) {
     res.status(400)
@@ -19,6 +20,7 @@ function chooseAlgorithm(method) {
         case "aldous-broder": return new AldousBroder()
         case "wilsons": return new Wilsons()
         case "hunt-and-kill": return new HuntAndKill()
+        case "backtracking": return new Backtracking()
         
         default: return new BinaryTree()
     }
@@ -31,10 +33,10 @@ function generate(req, res) {
         return code400(res, "parameter `columns` is missing")
     } else if (req.query.rows === undefined) {
         return code400(res, "parameter `rows` is missing")
-    } else if (req.query.columns < 2 || req.query.columns > 20) {
-        return code400(res, "parameter `columns` must be betweeen 0 and 20")
-    } else if (req.query.rows < 2 || req.query.rows > 20) {
-        return code400(res, "parameter `columns` must be betweeen 0 and 20")        
+    } else if (req.query.columns < 2 || req.query.columns > 100) {
+        return code400(res, "parameter `columns` must be betweeen 1 and 100")
+    } else if (req.query.rows < 2 || req.query.rows > 100) {
+        return code400(res, "parameter `columns` must be betweeen 1 and 100")        
     }
 
     let method = chooseAlgorithm(req.query.method)
