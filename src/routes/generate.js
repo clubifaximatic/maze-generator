@@ -46,9 +46,9 @@ function generate(req, res) {
         return code400(res, "parameter `columns` is missing")
     } else if (req.query.rows === undefined) {
         return code400(res, "parameter `rows` is missing")
-    } else if (req.query.columns < 2 || req.query.columns > 100) {
+    } else if (!Number.parseInt(req.query.columns) || req.query.columns < 1 || req.query.columns > 100) {
         return code400(res, "parameter `columns` must be betweeen 1 and 100")
-    } else if (req.query.rows < 2 || req.query.rows > 100) {
+    } else if (!Number.parseInt(req.query.rows) || req.query.rows < 1 || req.query.rows > 100) {
         return code400(res, "parameter `rows` must be betweeen 1 and 100")        
     }
 
