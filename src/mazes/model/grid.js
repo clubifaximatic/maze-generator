@@ -66,35 +66,8 @@ class Grid {
         return this.grid[row][column]
     }
 
-    toAscii() {
-        let maze = "+"
-        for (let i = 0; i < this.columns; i++) {
-            maze += "---+"
-        }
-        maze += "\n"
-
-        for (let row of this.eachRow()) {
-
-            let top = "|"
-            let bottom = "+"
-
-            for (let cell of row) {
-
-                let body = "   "
-                let eastDraw = cell.isLinked(cell.east) ? " " : "|"
-                let southDraw = cell.isLinked(cell.south) ? "   " : "---"
-
-                let tile = cell.links().length > 0 ? body : " . "
-                
-                top = top + tile + eastDraw
-                bottom = bottom + southDraw + "+"
-            }
-
-            maze += top + "\n"
-            maze += bottom + "\n"
-        }
-
-        return maze
+    toString() {
+        return `[Grid ${this.columns}x${this.rows}]`
     }
 }
 
