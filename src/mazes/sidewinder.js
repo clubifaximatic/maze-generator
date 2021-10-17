@@ -1,12 +1,10 @@
 'use strict';
 
-const Random = require("java-random");
+const Algorithm = require("./algortithm")
 
 class Sidewinder {
 
     on(grid, seed = 0) {
-        let rnd = Number(seed) ? new Random(Number(seed)) : new Random()
-
         for (let row of grid.eachRow()) {
             let run = []
 
@@ -14,10 +12,10 @@ class Sidewinder {
                 run.push(cell)
 
                 let lastCell = cell.east == null
-                let moveNorth = lastCell || (cell.north != null && rnd.nextInt(2) == 0)
+                let moveNorth = lastCell || (cell.north != null && super.nextInt(2) == 0)
 
                 if (moveNorth) {
-                    let linkedNeighbour = run[rnd.nextInt(run.length)]
+                    let linkedNeighbour = super.sample(run)
                     if (linkedNeighbour.north) {
                         linkedNeighbour.link(linkedNeighbour.north)
                     }

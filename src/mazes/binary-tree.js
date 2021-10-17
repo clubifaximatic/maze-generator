@@ -1,12 +1,10 @@
 'use strict';
 
-const Random = require("java-random");
+const Algorithm = require("./algortithm")
 
-class BinaryTree {
+class BinaryTree extends Algorithm {
 
-    on(grid, seed = 0) {
-        let rnd = Number(seed) ? new Random(Number(seed)) : new Random()
-
+    on(grid) {
         for (let cell of grid.cells()) {
             let neighbours = []
             if (cell.north != null) {
@@ -20,7 +18,7 @@ class BinaryTree {
                 continue
             }
 
-            let linkedNeighbour = neighbours[rnd.nextInt(neighbours.length)]
+            let linkedNeighbour = super.sample(neighbours)
             cell.link(linkedNeighbour)
         }
     }

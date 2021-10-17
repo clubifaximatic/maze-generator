@@ -17,28 +17,27 @@ function code400(res, message) {
     res.send(message)
 }
 
-function chooseAlgorithm(method) {
+function chooseAlgorithm(method, seed = 0) {
     switch(method) {
-        case "binary-tree": return new BinaryTree()
-        case "sidewinder": return new Sidewinder()
-        case "aldous-broder": return new AldousBroder()
-        case "wilsons": return new Wilsons()
-        case "hunt-and-kill": return new HuntAndKill()
-        case "backtracking": return new Backtracking()
+        case "binary-tree": return new BinaryTree(seed)
+        case "sidewinder": return new Sidewinder(seed)
+        case "aldous-broder": return new AldousBroder(seed)
+        case "wilsons": return new Wilsons(seed)
+        case "hunt-and-kill": return new HuntAndKill(seed)
+        case "backtracking": return new Backtracking(seed)
         
-        default: return new BinaryTree()
+        default: return new BinaryTree(seed)
     }
 }
 
-function chooseOutput(method) {
-    switch(method) {
+function chooseOutput(output) {
+    switch(output) {
         case "eascii": return mazeDrawer.toExtendedAscii
         case "ascii": return mazeDrawer.toAscii
         
         default: return mazeDrawer.toExtendedAscii
     }
 }
-
 
 function generate(req, res) {
     console.log(req.query)
@@ -53,9 +52,9 @@ function generate(req, res) {
         return code400(res, "parameter `rows` must be betweeen 1 and 100")        
     }
 
-    let method = chooseAlgorithm(req.query.method)
-    let outputDrawer = chooseOutput(req.query.out)
     let seed = req.query.seed || 0
+    let method = chooseAlgorithm(req.query.method, seed)
+    let outputDrawer = chooseOutput(req.query.out)
 
     let grid = new Grid(req.query.columns, req.query.rows)
     method.on(grid, seed)
