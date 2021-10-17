@@ -7,100 +7,136 @@ Generate mazes using some of the algorithms described in the book [Mazes for Pro
 
 The application is deployed in heroku:
 
-[https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5](https://clubi-maze-generator.herokuapp.com/maze?columns=5&rows=5)
+[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5)
 
 ### Parameters
-* **columns**: number of colums in the maze
-* **rows**: number of rows in the maze
+* **columns**: number of colums in the maze. Columns should be a number between (0, 100]
+* **rows**: number of rows in the maze. Rows should be a number between (0, 100]
 * **method**: the algorithm to be used (binary-tree, sidewinder, etc.)
-* **seed**: optional. Seed for random method. Same seed number generates the same maze
+* **seed**: optional (default random). Seed for random method (numeric). Same seed generates the same maze
+* **out**: optional (default extended-ascii). Output format
+   - extended-ascii: extended ascii chars
+   - ascii: extended ascii chars
 
 ## Implementations (method)
 
 ### binary-tree
 
-[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree)
+[web-link](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree)
 
 ```
-+---+---+---+---+---+
-|                   |
-+   +   +   +---+   +
-|   |   |   |       |
-+   +   +   +   +   +
-|   |   |   |   |   |
-+---+   +---+---+   +
-|       |           |
-+   +   +   +   +   +
-|   |   |   |   |   |
-+---+---+---+---+---+
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=binary-tree
+
+┌───────────────────┐
+│                   │
+│   │   ┌────   │   │
+│   │   │       │   │
+├───┴───┘   ┌───┘   │
+│           │       │
+│   ┌───────┘   │   │
+│   │           │   │
+│   │   ┌────   │   │
+│   │   │       │   │
+└───┴───┴───────┴───┘
 ```
 
 ### sidewinder
-[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder)
+[web-link](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder)
 
 ```
-+---+---+---+---+---+
-|                   |
-+   +---+---+   +   +
-|           |   |   |
-+---+   +   +---+   +
-|       |   |       |
-+   +---+   +---+---+
-|       |           |
-+   +   +---+---+   +
-|   |       |       |
-+---+---+---+---+---+
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=sidewinder
+
+┌───────────────────┐
+│                   │
+│   │   ────────┐   │
+│   │           │   │
+│   ├────   │   │   │
+│   │       │   │   │
+├───┴───────┘   └───┤
+│                   │
+│   │   ────┐   │   │
+│   │       │   │   │
+└───┴───────┴───┴───┘
 ```
 
 ### aldous-broder
-[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder)
+[web likn](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder)
 
 ```
-+---+---+---+---+---+
-|   |   |       |   |
-+   +   +---+   +   +
-|                   |
-+   +---+   +---+---+
-|       |   |       |
-+   +---+---+   +   +
-|               |   |
-+---+   +---+   +---+
-|       |           |
-+---+---+---+---+---+
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=aldous-broder
+
+┌───────────┬───────┐
+│           │       │
+├───┐   │   │   │   │
+│   │   │       │   │
+│   └───┼───────┘   │
+│       │           │
+│   ────┴───┬────   │
+│           │       │
+│   ────┐   │   ────┤
+│       │           │
+└───────┴───────────┘
 ```
 
 ### wilsons
-[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons)
+[web-link](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons)
 
 ```
-+---+---+---+---+---+
-|       |       |   |
-+---+   +---+   +   +
-|           |   |   |
-+---+   +---+   +   +
-|                   |
-+   +---+---+---+---+
-|               |   |
-+   +---+   +   +   +
-|   |       |       |
-+---+---+---+---+---+
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=wilsons
+
+┌───────────┬───────┐
+│           │       │
+│   ┌────   │   ┌───┤
+│   │           │   │
+│   │   ┌───┐   │   │
+│   │   │   │       │
+│   └───┘   │   │   │
+│           │   │   │
+├────────   └───┴───┤
+│                   │
+└───────────────────┘
 ```
 
 ### hunt -and-kill
-[https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill)
+[web-link](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill)
+
 ```
-+---+---+---+---+---+
-|       |           |
-+   +   +---+---+   +
-|   |               |
-+   +---+---+---+---+
-|   |               |
-+   +   +---+---+   +
-|   |           |   |
-+   +---+---+   +   +
-|               |   |
-+---+---+---+---+---+
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=hunt-and-kill
+
+┌───┬───────────────┐
+│   │               │
+│   │   ────┐   │   │
+│   │       │   │   │
+│   ├────   │   └───┤
+│   │       │       │
+│   └───┐   ├────   │
+│       │   │       │
+│   │   │   │   ────┤
+│   │       │       │
+└───┴───────┴───────┘
+```
+
+### backtracking
+[web-link](https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=backtracking)
+
+```
+$ curl https://clubi-maze-generator.herokuapp.com/maze/generate?columns=5&rows=5&method=backtracking
+
+┌───┬───────────────┐
+│   │               │
+│   │   │   ┌────   │
+│       │   │       │
+│   ────┤   └───────┤
+│       │           │
+├───────┼───────┐   │
+│       │       │   │
+├────   │   │   │   │
+│           │       │
+└───────────┴───────┘
 ```
 
 ### TODO
+* add solver
+* more output modes
+* visualize solution
 * implement more algorithms
