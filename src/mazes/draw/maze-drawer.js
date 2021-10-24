@@ -2,6 +2,7 @@
 
 const asciiDrawer = require("./ascii-drawer")
 const extendedAsciiDrawer = require("./extended-ascii-drawer")
+const htmlDrawer = require("./html-drawer")
 
 class MazeDrawer {
 
@@ -11,6 +12,10 @@ class MazeDrawer {
 
     toExtendedAscii(grid) {
         return extendedAsciiDrawer(grid)
+    }
+
+    toHtml(grid) {
+        return htmlDrawer(grid)
     }
 }
 

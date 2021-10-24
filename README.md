@@ -12,11 +12,13 @@ The application is deployed in heroku:
 ### Parameters
 * **columns**: number of colums in the maze. Columns should be a number between (0, 100]
 * **rows**: number of rows in the maze. Rows should be a number between (0, 100]
-* **method**: the algorithm to be used (binary-tree, sidewinder, etc.)
+* **method**: optional (default backtracking). The algorithm to be used (binary-tree, sidewinder, etc.)
 * **seed**: optional (default random). Seed for random method (numeric). Same seed generates the same maze
-* **out**: optional (default extended-ascii). Output format
-   - extended-ascii: extended ascii chars
+* **out**: optional (default html). Output format
+   - html: html with tiles
+   - eascii: extended ascii chars
    - ascii: extended ascii chars
+
 
 ## Implementations (method)
 

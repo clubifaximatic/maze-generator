@@ -26,7 +26,7 @@ function chooseAlgorithm(method, seed = 0) {
         case "hunt-and-kill": return new HuntAndKill(seed)
         case "backtracking": return new Backtracking(seed)
         
-        default: return new BinaryTree(seed)
+        default: return new Backtracking(seed)
     }
 }
 
@@ -34,8 +34,9 @@ function chooseOutput(output) {
     switch(output) {
         case "eascii": return mazeDrawer.toExtendedAscii
         case "ascii": return mazeDrawer.toAscii
+        case "html": return mazeDrawer.toHtml
         
-        default: return mazeDrawer.toExtendedAscii
+        default: return mazeDrawer.toHtml
     }
 }
 
@@ -59,7 +60,9 @@ function generate(req, res) {
     let grid = new Grid(req.query.columns, req.query.rows)
     method.on(grid, seed)
 
-    res.setHeader('Content-Type', 'text/plain')
+    if (req.query.out != 'html') {
+        res.setHeader('Content-Type', 'text/plain')
+    }
     res.send(outputDrawer(grid))
 }
 
