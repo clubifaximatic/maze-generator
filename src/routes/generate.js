@@ -60,7 +60,7 @@ function generate(req, res) {
     let grid = new Grid(req.query.columns, req.query.rows)
     method.on(grid, seed)
 
-    if (req.query.out != 'html') {
+    if (req.query.out && req.query.out != 'html') {
         res.setHeader('Content-Type', 'text/plain')
     }
     res.send(outputDrawer(grid))
